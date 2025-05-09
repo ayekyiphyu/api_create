@@ -28,3 +28,13 @@ uvicorn config.asgi:application --reload
 python manage.py migrate
 ```
 
+
+
+```bash
+config > urls.py
+
+path('api/', include('myapi.urls'))
+```
+
+※ from django.urls.import path, include
+
