@@ -11,6 +11,10 @@ pip install django djangorestframework uvicorn
 python manage.py runserver
 ```
 
+```bash
 
+uvicorn config.asgi:application --reload
+
+```
 
 
