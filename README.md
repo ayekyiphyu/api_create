@@ -17,4 +17,14 @@ uvicorn config.asgi:application --reload
 
 ```
 
+### settings.py
+```bash
+'rest_framework',
+'myapi',
+```
+
+
+```bash
+python manage.py migrate
+```
 
