@@ -2,6 +2,9 @@
 Django を使って API を作成するためのプロジェクトを立ち上げます。
 ※私は Windows 環境なので、手順も Windows に合わせて記載しています。
 
+- source venv/bin/active
+- pip install uv
+
 ```bash
 django-admin startproject myproject_name
 cd myproject_name
