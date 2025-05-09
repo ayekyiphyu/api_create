@@ -38,3 +38,20 @@ path('api/', include('myapi.urls'))
 
 ※ from django.urls.import path, include
 
+
+``` 
+migration
+python manage.py makemigrations myapi
+python manage.py migrate
+
+```
+
+## create sqlite 3
+```
+sudo apt install sqlite3
+sqlite3 db.sqlite3
+.tables (check myapi_table)
+```
+
+
+
