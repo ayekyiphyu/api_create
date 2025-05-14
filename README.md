@@ -1,57 +1,35 @@
-### API作成するために　
-Django を使って API を作成するためのプロジェクトを立ち上げます。
-※私は Windows 環境なので、手順も Windows に合わせて記載しています。
+# User API Project
 
+This repository is for building a **User API** using **Python**, **Django**, and **Django REST Framework**.  
+This project will be used as the backend for a user NoteMemo application built with **React** and **Next.js**.
 
+---
+
+## 🧭 Project Overview
+
+- The project provides an API for user registration and login.
+- If a user does not exist, a new user can register through the API.
+- After login, users will be redirected to their Dashboard (in the frontend app).
+- This repository is **only for the backend API** development.
+
+---
+
+## 🛠 Technologies Used
+
+- Python
+- Django
+- Django REST Framework
+- Uvicorn (ASGI server for local testing)
+- SQLite3 (default development DB)
+
+---
+
+## 🚀 Getting Started (Windows Environment)
+
+### 1. Set up your project
 
 ```bash
 mkdir project_name
 cd project_name
 pip install django djangorestframework uvicorn
-python manage.py runserver
-```
-
-```bash
-
-uvicorn config.asgi:application --reload
-
-```
-
-### settings.py
-```bash
-'rest_framework',
-'myapi',
-```
-
-
-```bash
-python manage.py migrate
-```
-
-
-
-```bash
-config > urls.py
-
-path('api/', include('myapi.urls'))
-```
-
-※ from django.urls.import path, include
-
-
-``` 
-migration
-python manage.py makemigrations myapi
-python manage.py migrate
-
-```
-
-## create sqlite 3
-```
-sudo apt install sqlite3
-sqlite3 db.sqlite3
-.tables (check myapi_table)
-```
-
-
-
+django-admin startproject config .
