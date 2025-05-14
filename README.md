@@ -33,3 +33,8 @@ mkdir project_name
 cd project_name
 pip install django djangorestframework uvicorn
 django-admin startproject config .
+
+
+※：FEについは【my-project-structure】を参照してお願いします。
+※：later I will be change my project name.
+
