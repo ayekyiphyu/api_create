@@ -1,3 +1,9 @@
+
+### プロジェクト概要
+このプロジェクトはMemoのために使うapiです。
+初めてdjangoを勉強しがなら開発しているプロジェクトです。
+勉強のために参照したら幸いです。
+
 # User API Project
 
 This repository is for building a **User API** using **Python**, **Django**, and **Django REST Framework**.  
