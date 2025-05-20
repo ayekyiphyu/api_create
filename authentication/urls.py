@@ -1,5 +1,5 @@
 from django.urls import path
-from authentication.views import LoginView, LogoutView, RegisterView
+from authentication.views import LoginView, LogoutView, RegisterView, currentUserView
 from authentication.UserInfoView import UserInfoView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
@@ -24,4 +24,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('', auth_root_view, name='auth-root'),  # /api/auth/
     path('userinfo/', UserInfoView.as_view(), name='user-info'),
+    path('auth', currentUserView.as_view(), name='current-user'),  # /api/auth/auth
 ]
