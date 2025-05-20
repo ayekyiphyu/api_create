@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'authentication',
+    'memos',
+    
 ]
 
 MIDDLEWARE = [
@@ -56,25 +58,60 @@ MIDDLEWARE = [
 # React APP URL 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  
-    "http://127.0.0.1:3000",
+    #"http://127.0.0.1:8000",
 ]
 
-CORS_ALLOW_CREDENTIALS = True
 
 AUTHENTICATION_BACKENDS = [
     'authentication.backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',  # Keep the default backend as fallback
 ]
 
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',  
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+CSRF_COOKIE_SAMESITE = 'Lax'  # or 'None' if using cross-site requests
+CSRF_COOKIE_HTTPONLY = False  # Must be False to allow JavaScript access
+CSRF_COOKIE_SECURE = False    # Set to True in production with HTTPS
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']  # Add your frontend URL
+
+
 SESSION_COOKIE_SAMESITE = 'Lax'
-CSRF_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = True   # Recommended for security
+SESSION_COOKIE_SECURE = False    # Set to True in production with HTTPS
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
     ],
 }
+
 
 ROOT_URLCONF = 'config.urls'
 
