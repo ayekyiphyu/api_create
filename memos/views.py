@@ -62,25 +62,23 @@ from .models import Memo
 from .serializers import MemoSerializer
 
 class MemoListCreateView(generics.ListCreateAPIView):
+    queryset = Memo.objects.all()
     serializer_class = MemoSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get_queryset(self):
-        return Memo.objects.filter(user=self.request.user)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    permission_classes = [permissions.AllowAny]
 
 class MemoRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Memo.objects.all()
     serializer_class = MemoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
-    def get_queryset(self):
-        return Memo.objects.filter(user=self.request.user)
-    
 class MemoDeleteView(generics.DestroyAPIView):
+    queryset = Memo.objects.all()
     serializer_class = MemoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
-    def get_queryset(self):
-        return Memo.objects.filter(user=self.request.user)
+def perform_create(self, serializer):
+    if self.request.user.is_authenticated:
+        serializer.save(user=self.request.user)
+    else:
+        serializer.save(user = None)
+    # If the user is not authenticated, save the memo without a user
