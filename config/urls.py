@@ -4,6 +4,7 @@ from rest_framework import routers
 from django.http import JsonResponse
 from django.urls import reverse
 
+from contact.views import ContactCreateView
 from memos.views import MemoListCreateView, MemoRetrieveUpdateDestroyView, MemoDeleteView
 
 def api_root(response):
@@ -14,6 +15,8 @@ def api_root(response):
             'api_docs': '/api/',
             'login': '/api/auth/login/',
             'logout': '/api/auth/logout/',
+            'contact': 'api/contact'
+
         }
     })
 
@@ -26,6 +29,7 @@ urlpatterns = [
     path('api/memos/', MemoListCreateView.as_view(), name='memo-list-create'),
     path('api/memos/<int:pk>/', MemoRetrieveUpdateDestroyView.as_view(), name='memo-detail'),
     path('api/memos/<int:pk>/delete/', MemoDeleteView.as_view(), name='memo-delete'),
+   path('api/contact/', ContactCreateView.as_view(), name='contact-list-create'),
 ]
 
 
