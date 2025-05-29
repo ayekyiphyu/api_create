@@ -6,16 +6,18 @@ from django.urls import reverse
 
 from contact.views import ContactCreateView
 from memos.views import MemoListCreateView, MemoRetrieveUpdateDestroyView, MemoDeleteView
+from notices.views import NoticesCreateView
 
 def api_root(response):
     return JsonResponse({
-        'message': 'Welcome to the API',    
+        'message': 'Welcome to the API',
         'endpoints': {
             'admin': reverse('admin:index'),
             'api_docs': '/api/',
             'login': '/api/auth/login/',
             'logout': '/api/auth/logout/',
-            'contact': 'api/contact'
+            'contact': '/api/contact',
+            'notices':'/api/notices',
 
         }
     })
@@ -29,7 +31,6 @@ urlpatterns = [
     path('api/memos/', MemoListCreateView.as_view(), name='memo-list-create'),
     path('api/memos/<int:pk>/', MemoRetrieveUpdateDestroyView.as_view(), name='memo-detail'),
     path('api/memos/<int:pk>/delete/', MemoDeleteView.as_view(), name='memo-delete'),
-   path('api/contact/', ContactCreateView.as_view(), name='contact-list-create'),
+    path('api/contact/', ContactCreateView.as_view(), name='contact-list-create'),
+    path('api/notices/', NoticesCreateView.as_view(), name='notices-list-create'),
 ]
-
-

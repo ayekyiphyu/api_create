@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'authentication',
     'memos',
-    'contact'
+    'contact',
+    'notices'
 ]
 
 MIDDLEWARE = [
