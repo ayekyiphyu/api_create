@@ -13,4 +13,5 @@ class UserInfoView(APIView):
             "id": user.id,
             "email": user.email,
             "username": user.username,
+            "is_superuser":user.is_superuser,
         })
