@@ -53,15 +53,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   
+
 ]
 
-# React APP URL 
+# React APP URL
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  
+    "http://localhost:3000",
     #"http://127.0.0.1:8000",
 ]
 
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 AUTHENTICATION_BACKENDS = [
     'authentication.backends.EmailBackend',
@@ -72,7 +74,7 @@ AUTHENTICATION_BACKENDS = [
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',  
+    'http://localhost:3000',
 ]
 
 CORS_ALLOW_METHODS = [
