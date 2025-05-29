@@ -1,22 +1,12 @@
-from django.shortcuts import render
 from rest_framework import generics, permissions
-
+from contact.models import Contact
 from contact.serializers import ContactSerializer
 
-# Create your views here.
 class ContactCreateView(generics.ListCreateAPIView):
-      serializer_class = ContactSerializer
-      permission_classes = [permissions.IsAuthenticated]
+    serializer_class = ContactSerializer
+    permission_classes = [permissions.AllowAny]  # 全ユーザーに許可
 
-      permission_classes = [permissions.AllowAny]
+    def get_queryset(self):
+        return Contact.objects.all()  # すべての問い合わせを取得（管理者用などに使うなら）
 
-      def get_queryset(self):
-        # 自分のメモだけ取得
-        return ContactCreateView.objects.filter(user=self.request.user)
-
-      def perform_create(self, serializer):
-        # 作成時に自動でログインユーザーを紐付け
-        serializer.save(user=self.request.user)
-
-def get_queryset(self):
-   return Concat.objects.filter(user = self.request.user)
+    # perform_create は不要（userを保存する必要がないため）
