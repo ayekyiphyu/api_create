@@ -53,6 +53,7 @@ class LoginView(APIView):
                     "id": user.id,
                     "email": user.email,
                     "username": user.username,
+                    "is_superuser": user.is_superuser,
                 }
             })
         else:
@@ -67,6 +68,7 @@ class currentUserView(APIView):
                 'id': user.id,
                 'email': user.email,
                 'username': user.username,
+                "is_superuser": user.is_superuser,
             })
         else:
             return Response({"error": "Authentication credentials were not provided."}, status=status.HTTP_401_UNAUTHORIZED)
@@ -75,8 +77,8 @@ class currentUserView(APIView):
 class TestLoginView(View):
     def post(self, request):
         return JsonResponse({'message': 'CSRF exempt works'})
-    
-    
+
+
 @method_decorator(csrf_exempt, name='dispatch')
 class LogoutView(APIView):
     # Open to anyone, but check authentication manually inside method

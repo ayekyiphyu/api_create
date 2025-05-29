@@ -68,17 +68,17 @@ def admin_dashboard_view(request):
             status=status.HTTP_403_FORBIDDEN
         )
 
-    # Import here to avoid circular imports
-    from django.contrib.auth.models import User
+    # # Import here to avoid circular imports
+    # from django.contrib.auth.models import User
 
-    return Response({
-        "message": "Admin Dashboard",
-        "stats": {
-            "total_users": User.objects.count(),
-            "superusers": User.objects.filter(is_superuser=True).count(),
-            "staff_users": User.objects.filter(is_staff=True).count(),
-        }
-    })
+    # return Response({
+    #     "message": "Admin Dashboard",
+    #     "stats": {
+    #         "total_users": User.objects.count(),
+    #         "superusers": User.objects.filter(is_superuser=True).count(),
+    #         "staff_users": User.objects.filter(is_staff=True).count(),
+    #     }
+    # })
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
