@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'authentication',
     'memos',
     'contact',
-    'notices'
+    'notices',
+    'book_calendar'
 ]
 
 MIDDLEWARE = [
