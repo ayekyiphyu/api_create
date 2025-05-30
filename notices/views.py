@@ -17,7 +17,7 @@ from notices.serializers import NoticeSerializer
 class NoticesCreateView(generics.ListCreateAPIView):
     queryset = Notice.objects.all()
     serializer_class = NoticeSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated] #is authenticated user must be define
 
 # Retrieve, update or delete a specific notice by id
 class NoticesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
