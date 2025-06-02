@@ -48,7 +48,7 @@ from memos.views import (
     MemoRetrieveUpdateDestroyView,
     MemoDeleteView,
 )
-from notices.views import NoticesCreateView
+from notices.views import NoticeDeleteView, NoticeEditView, NoticesCreateView
 
 from book_calendar.views import (
     BookingListCreateView,
@@ -65,6 +65,7 @@ urlpatterns = [
 
     # Auth endpoints
     path('api/auth/', include('authentication.urls')),
+    path('api/', include('notices.urls')),
 
     # Memo endpoints
     path('api/memos/', MemoListCreateView.as_view(), name='memo-list-create'),
@@ -74,6 +75,7 @@ urlpatterns = [
     # Contact and notices
     path('api/contact/', ContactCreateView.as_view(), name='contact-create'),
     path('api/notices/', NoticesCreateView.as_view(), name='notices-create'),
+
 
 
     # Booking Calendar
