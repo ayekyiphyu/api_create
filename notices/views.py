@@ -17,9 +17,18 @@ from notices.serializers import NoticeSerializer
 class NoticesCreateView(generics.ListCreateAPIView):
     queryset = Notice.objects.all()
     serializer_class = NoticeSerializer
-    permission_classes = [permissions.IsAuthenticated] #is authenticated user must be define
+    permission_classes = [permissions.AllowAny]
+    #permission_classes = [permissions.IsAuthenticated] #is authenticated user must be define
 
-# Retrieve, update or delete a specific notice by id
+class NoticeEditView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Notice.objects.all()
+    serializer_class = NoticeSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Notice.objects.filter(created_by=self.request.user)
+
+
 class NoticesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Notice.objects.all()
     serializer_class = NoticeSerializer
@@ -27,3 +36,13 @@ class NoticesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Notice.objects.all()
+
+
+class NoticeDeleteView(generics.DestroyAPIView):
+    serializer_class = NoticeSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+    def get_queryset(self):
+        # 自分のメモだけ削除対象にする
+        return Notice.objects.filter(user=self.request.user)
