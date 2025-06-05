@@ -79,6 +79,6 @@ urlpatterns = [
 
 
     # Booking Calendar
-    path('api/bookings/', BookingListCreateView.as_view(), name= 'booking-create'),
-    path('api/bookings/<int:pk>/', BookingDetailView.as_view(), name='booking-create')
+    path('api/calendar/', BookingListCreateView.as_view(), name='calendar-list-create'),
+    path('api/calendar-details', BookingDetailView.as_view(), name='calendar-detail'),
 ]
