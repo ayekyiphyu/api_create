@@ -1,4 +1,4 @@
-#!/home/akphyu/my_django/venv/bin/python
+#!/Users/kyiphyu/Projects/dashborad-app-backend/venv/bin/python3.13
 # -*- coding: utf-8 -*-
 import re
 import sys
