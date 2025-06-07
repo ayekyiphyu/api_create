@@ -1,9 +1,15 @@
 from django.urls import path
-from authentication import views
-from book_calendar.views import BookingListCreateView,BookingDetailView
+from book_calendar.views import (
+    BookingListCreateView, 
+    BookingDetailView
+    # Remove BookingDeleteView import since we're not using it
+)
 
 urlpatterns = [
-    path('calendar/', views.BookingListCreateView.as_view(), name='booking-list-create'),
-    path('calendar/<int:pk>/', views.BookingDetailView.as_view(), name='booking-detail'),
-    path('calendar/all/', views.AllBookingsView.as_view(), name='all-bookings'),
+    # List all bookings and create new booking
+    path('calendar/', BookingListCreateView.as_view(), name='booking-list-create'),
+    
+    # Individual booking operations (GET, PUT, PATCH, DELETE)
+    path('calendar/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
+    
 ]
