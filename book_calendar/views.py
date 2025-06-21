@@ -9,6 +9,14 @@ class BookingListCreateView(generics.ListCreateAPIView):
     serializer_class = BookingSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    # def perform_create(self, serializer):
+    #     serializer.save(user=self.request.user)
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [permissions.AllowAny()]  # 👈 anyone can read
+        return [permissions.IsAuthenticated()]  # 👈 only logged-in users can create
+
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 

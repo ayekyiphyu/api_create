@@ -164,4 +164,7 @@ urlpatterns = [
 
     # Legacy support (if needed)
     path('auth/', currentUserView.as_view(), name='current-user-legacy'),
+
+
+    #rest password
 ]
