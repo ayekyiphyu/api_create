@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'memos',
     'contact',
     'notices',
-    'book_calendar'
+    'book_calendar',
+    'chat'
 ]
 
 MIDDLEWARE = [
@@ -167,6 +168,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Google API
+GOOGLE_AI_STUDIO_API_KEY = 'AIzaSyATQqT0Y6IaiLC7zmUrmbA-zhgghYM-ECw'
 
 
 # Internationalization

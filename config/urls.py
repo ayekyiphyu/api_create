@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 from django.http import JsonResponse
 
 # Views from your apps
+from chat.views import ChatCreateView
 from contact.views import ContactCreateView
 from memos.views import (
     MemoListCreateView,
@@ -30,6 +31,7 @@ def root_view(request):
             "/api/notices/",
             "/api/contact/",
             "/api/calendar/",
+            "/api/chat/",
         ]
     })
 
@@ -60,5 +62,9 @@ urlpatterns = [
     path('api/calendar/', BookingListCreateView.as_view(), name='calendar-list-create'),
     path('api/calendar-details', BookingDetailView.as_view(), name='calendar-detail'),
     path('api/calendar/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
-    # path('api/calendar/<int:pk>/delete/', BookingDeleteView.as_view(), name='booking-delete'),
+
+
+    # Chat
+    path('api/chat', ChatCreateView.as_view(), name='chat-list-create'),
+
 ]
