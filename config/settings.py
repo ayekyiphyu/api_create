@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'memos',
     'contact',
     'notices',
-    'book_calendar',
-    'chat'
+    'book_calendar'
+
 ]
 
 MIDDLEWARE = [
