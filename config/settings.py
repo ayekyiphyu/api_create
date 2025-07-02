@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'memos',
     'contact',
     'notices',
-    'book_calendar'
+    'book_calendar',
+    'weather'
 
 ]
 
