@@ -15,6 +15,7 @@ from book_calendar.views import (
     BookingListCreateView,
     BookingDetailView
 )
+from weather.views import WeatherCreateView
 
 # DRF router (if you use any ViewSets)
 router = DefaultRouter()
@@ -30,6 +31,7 @@ def root_view(request):
             "/api/notices/",
             "/api/contact/",
             "/api/calendar/",
+            "/api/weather"
         ]
     })
 
@@ -61,4 +63,6 @@ urlpatterns = [
     path('api/calendar-details', BookingDetailView.as_view(), name='calendar-detail'),
     path('api/calendar/<int:pk>/', BookingDetailView.as_view(), name='booking-detail'),
 
+    # Weather
+    path('api/weather/', WeatherCreateView.as_view(), name='weather-list-create'),
 ]
