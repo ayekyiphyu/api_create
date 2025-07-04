@@ -1,15 +1,12 @@
-version: '3.8'
-
 services:
   # PostgreSQL Database
   db:
-    image: postgres:16
+    image: postgres:15
     container_name: reserveit_db
     environment:
       POSTGRES_DB: reserveit_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mypassword123
-      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"
     volumes:
