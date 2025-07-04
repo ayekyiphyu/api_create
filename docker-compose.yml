@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15
+    container_name: reserveit_db
+    environment:
+      POSTGRES_DB: reserveit_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mypassword123
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+  # Django Web Application
+  web:
+    build: .
+    container_name: reserveit_web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:mypassword123@db:5432/reserveit_db
+
+volumes:
+  postgres_data:
