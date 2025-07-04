@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # PostgreSQL Database
   db:
-    image: postgres:15
+    image: postgres:16
     container_name: reserveit_db
     environment:
       POSTGRES_DB: reserveit_db
