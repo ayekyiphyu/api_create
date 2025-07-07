@@ -14,6 +14,14 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: unless-stopped
 
+  # Fixed Adminer service
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
   # Django Web Application
   web:
     build: .

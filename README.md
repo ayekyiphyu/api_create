@@ -169,3 +169,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - PostgreSQL service may need to be started manually: `sudo service postgresql start`
 - File permissions might need adjustment when working between Windows and WSL
+
+
+
+### Password
+
+``` bash
+## superuser
+
+ * username : test@gmail.com
+ * password : test12345
+
+# normaluser
+* username : mt@gmail.com
+* password : test12345
+
+```
