@@ -28,18 +28,18 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:mypassword123@db:5432/reserveit_db
 
-  # Next.js Frontend Application
-  frontend:
-    build:
-      context: ./frontend
-    container_name: reserveit_frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-    command: npm run dev
-    depends_on:
-      - web
+  # # Next.js Frontend Application
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #   container_name: reserveit_frontend
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend:/app
+  #   command: npm run dev
+  #   depends_on:
+  #     - web
 
 volumes:
   postgres_data:
