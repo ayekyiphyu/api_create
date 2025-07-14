@@ -8,8 +8,8 @@ class PasswordReset(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        verbose_name = "Password Reset"
-        verbose_name_plural = "Password Resets"
+        verbose_name = "PasswordReset"
+        verbose_name_plural = "PasswordResets"
 
     def __str__(self):
         return f"Password Reset for {self.email}"
