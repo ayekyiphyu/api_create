@@ -31,7 +31,8 @@ def root_view(request):
             "/api/notices/",
             "/api/contact/",
             "/api/calendar/",
-            "/api/weather"
+            "/api/weather/",
+            "/api/password_reset/"
         ]
     })
 
@@ -65,4 +66,7 @@ urlpatterns = [
 
     # Weather
     path('api/weather/', WeatherCreateView.as_view(), name='weather-list-create'),
+
+    # Password Reset
+    path('api/password_reset/', include('password_reset.urls')),
 ]

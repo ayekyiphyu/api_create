@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'contact',
     'notices',
     'book_calendar',
-    'weather'
+    'weather',
+    'password_reset',
 
 ]
 
