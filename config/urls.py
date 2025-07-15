@@ -1,3 +1,4 @@
+# config/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -32,7 +33,7 @@ def root_view(request):
             "/api/contact/",
             "/api/calendar/",
             "/api/weather/",
-            "/api/password_reset/"
+            "/api/password-reset/"
         ]
     })
 
@@ -67,6 +68,6 @@ urlpatterns = [
     # Weather
     path('api/weather/', WeatherCreateView.as_view(), name='weather-list-create'),
 
-    # Password Reset
-    path('api/password_reset/', include('password_reset.urls')),
+    # Password Reset - Updated to use consistent naming
+    path('api/password-reset/', include('password_reset.urls')),
 ]
