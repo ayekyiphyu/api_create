@@ -67,11 +67,4 @@ urlpatterns = [
 
     # Weather
     path('api/weather/', WeatherCreateView.as_view(), name='weather-list-create'),
-<<<<<<< HEAD
 ]
-=======
-
-    # Password Reset - Updated to use consistent naming
-    path('api/password-reset/', include('password_reset.urls')),
-]
->>>>>>> origin/issue#2
