@@ -14,12 +14,22 @@ from django.conf import settings
 from .serializers import PasswordResetRequestSerializer, PasswordResetConfirmSerializer
 from .models import PasswordReset
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
 def password_reset_request(request):
     """
     Request password reset - sends email with reset token
     """
+    if request.method == 'GET':
+        return Response({
+            'message': 'Password Reset Request Endpoint',
+            'method': 'POST',
+            'required_fields': ['email'],
+            'example': {
+                'email': 'user@example.com'
+            }
+        }, status=status.HTTP_200_OK)
+
     serializer = PasswordResetRequestSerializer(data=request.data)
 
     if serializer.is_valid():
@@ -56,7 +66,7 @@ def password_reset_request(request):
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
 def password_reset_confirm(request):
     """
