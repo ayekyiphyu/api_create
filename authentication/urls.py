@@ -145,8 +145,12 @@ def current_user_enhanced(request):
 # URL patterns with better organization
 urlpatterns = [
     # Authentication endpoints
+<<<<<<< HEAD
    # path('login/', LoginView.as_view(), name='auth-login'),
      path('api/auth/login/',LoginView.as_view(), name='login'),
+=======
+    path('login/', LoginView.as_view(), name='auth-login'),
+>>>>>>> origin/issue#2
     path('register/', RegisterView.as_view(), name='auth-register'),
     path('logout/', LogoutView.as_view(), name='auth-logout'),
 
