@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-# config/urls.py
->>>>>>> origin/issue#2
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -35,12 +31,9 @@ def root_view(request):
             "/api/notices/",
             "/api/contact/",
             "/api/calendar/",
-<<<<<<< HEAD
             "/api/weather"
-=======
             "/api/weather/",
             "/api/password-reset/"
->>>>>>> origin/issue#2
         ]
     })
 
