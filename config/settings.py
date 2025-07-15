@@ -10,10 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-<<<<<<< HEAD
 import os
-=======
->>>>>>> origin/issue#2
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,11 +27,7 @@ SECRET_KEY = 'django-insecure-8oo84v0(xrikrh7bj(0eqm=z$bak_jz(w1g@_o741kwauo^k09
 DEBUG = True
 
 ALLOWED_HOSTS = []
-<<<<<<< HEAD
 import dj_database_url
-=======
-
->>>>>>> origin/issue#2
 
 # Application definition
 
@@ -52,12 +45,7 @@ INSTALLED_APPS = [
     'contact',
     'notices',
     'book_calendar',
-<<<<<<< HEAD
     'weather'
-=======
-    'weather',
-    'password_reset',
->>>>>>> origin/issue#2
 
 ]
 
@@ -76,11 +64,7 @@ MIDDLEWARE = [
 # React APP URL
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-<<<<<<< HEAD
     "http://127.0.0.1:8000",
-=======
-    #"http://127.0.0.1:8000",
->>>>>>> origin/issue#2
 ]
 
 
@@ -162,7 +146,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-<<<<<<< HEAD
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
@@ -170,15 +153,6 @@ DATABASES = {
   'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
-=======
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
->>>>>>> origin/issue#2
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
