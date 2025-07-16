@@ -184,4 +184,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * username : mt@gmail.com
 * password : test12345
 
+# forget password (request)
+
+*  'email': 'user@example.com'
+※ if you use this email api is working and password will be reset.
+
+
 ```
